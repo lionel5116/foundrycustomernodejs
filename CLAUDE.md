@@ -13,9 +13,9 @@ package.json (root)   concurrently scripts to run/kill both together
 ## Running
 
 ```
-npm install        # root, backend/, and frontend/ each need their own install
-npm run dev         # from root — starts backend + frontend together
-npm run kill         # frees ports 3002 (backend) and 5173 (frontend)
+npm run install:all # installs root, backend/, and frontend/ deps in one shot
+npm run dev          # from root — starts backend + frontend together
+npm run kill          # frees ports 3002 (backend) and 5173 (frontend)
 ```
 
 Backend alone: `cd backend && cp .env.example .env && npm start` (port 3002).

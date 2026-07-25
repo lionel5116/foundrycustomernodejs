@@ -31,12 +31,21 @@ npm run dev
 
 Opens on `http://localhost:5173`. `src/FoundryChat.jsx` points at `BACKEND_URL = "http://localhost:3002"` — update that constant if the backend runs elsewhere.
 
-## Run both
+## Install everything at once
 
-After installing dependencies in `backend/` and `frontend/` (and setting up `backend/.env`), from the project root:
+From the project root:
 
 ```
-npm install
+npm run install:all
+```
+
+Installs root, `backend/`, and `frontend/` dependencies in one command. Still need to `cp backend/.env.example backend/.env` and fill in values before running.
+
+## Run both
+
+After installing dependencies (see above) and setting up `backend/.env`, from the project root:
+
+```
 npm run dev
 ```
 

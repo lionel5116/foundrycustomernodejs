@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
+    "install:all": "npm install && npm --prefix backend install && npm --prefix frontend install",
     "dev": "concurrently -n backend,frontend -c blue,green \"npm --prefix backend start\" \"npm --prefix frontend run dev\"",
     "kill": "lsof -ti :3002 -ti :5173 | xargs kill -9 2>/dev/null || true"
   },
