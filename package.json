@@ -1,0 +1,12 @@
+{
+  "name": "foundry-customer-nodejs",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "concurrently -n backend,frontend -c blue,green \"npm --prefix backend start\" \"npm --prefix frontend run dev\"",
+    "kill": "lsof -ti :3002 -ti :5173 | xargs kill -9 2>/dev/null || true"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}

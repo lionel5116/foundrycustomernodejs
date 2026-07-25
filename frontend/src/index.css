@@ -1,0 +1,46 @@
+:root {
+  --toyota-red: #eb0a1e;
+  --toyota-red-dark: #c00819;
+  --toyota-black: #1a1a1a;
+  --text: #4a4a4a;
+  --text-h: #1a1a1a;
+  --bg: #f2f2f2;
+  --panel-bg: #ffffff;
+  --border: #e2e2e2;
+  --shadow: rgba(0, 0, 0, 0.08) 0 4px 16px -4px, rgba(0, 0, 0, 0.04) 0 2px 6px -2px;
+
+  --sans: 'Helvetica Neue', Arial, system-ui, 'Segoe UI', Roboto, sans-serif;
+
+  font: 16px/145% var(--sans);
+  color-scheme: light;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2 {
+  font-family: var(--sans);
+  color: var(--text-h);
+}
+
+p {
+  margin: 0;
+}
