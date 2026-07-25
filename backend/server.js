@@ -1,10 +1,15 @@
 // server.js
+import path from "path";
+import { fileURLToPath } from "url";
 import express from "express";
 import cors from "cors";
 import "dotenv/config";
 import { DefaultAzureCredential } from "@azure/identity";
 import { AIProjectClient } from "@azure/ai-projects";
 import { isRestError } from "@azure/core-rest-pipeline";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const frontendDist = path.join(__dirname, "../frontend/dist");
 
 const endpoint = process.env.PROJECT_ENDPOINT;   // e.g. https://lionel-7414-resource.services.ai.azure.com/api/projects/lionel-7414
 const agentName = process.env.FOUNDRY_AGENT_NAME; // e.g. "customer-support-agent"
@@ -109,6 +114,13 @@ app.post("/api/agent/message", async (req, res) => {
   } catch (err) {
     handleAgentError(err, res);
   }
+});
+
+// Serve the built frontend (when deployed alongside it in the same app).
+// Placed after the /api routes above so they always take precedence.
+app.use(express.static(frontendDist));
+app.get(/^(?!\/api).*/, (req, res) => {
+  res.sendFile(path.join(frontendDist, "index.html"));
 });
 
 const PORT = process.env.PORT || 3001;

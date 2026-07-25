@@ -1,8 +1,10 @@
 // src/FoundryChat.jsx
 import React, { useState, useRef, useEffect } from "react";
 
-// Point this at wherever your Node backend (server.js) is running.
-const BACKEND_URL = "http://localhost:3002";
+// In production this widget is served by the same Express app it talks to,
+// so requests can just use a relative path. In local dev the frontend and
+// backend run on separate Vite/Express ports, so point at the backend directly.
+const BACKEND_URL = import.meta.env.PROD ? "" : "http://localhost:3002";
 
 const FoundryChat = ({ agentTitle = "RAV4 Support Agent" }) => {
   const [messages, setMessages] = useState([]);
